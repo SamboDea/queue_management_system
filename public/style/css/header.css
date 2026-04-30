@@ -1,0 +1,47 @@
+/* Navbar background gradient */
+.navbar-qms {
+    background: #0090b7;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-radius: 40px;
+    box-shadow:
+        rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+/* Brand / Logo */
+.navbar-qms .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.navbar-qms .navbar-brand:hover {
+    color: #ffd700;
+}
+
+/* Links */
+.navbar-qms .nav-link {
+    color: #fff;
+    font-weight: 500;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-qms .nav-link:hover {
+    color: #ffd700 !important;
+}
+
+/* Active link style */
+.navbar-qms .nav-item.active .nav-link {
+    color: #ffd700 !important;
+    font-weight: 600;
+}
+
+/* Mobile toggle button */
+.navbar-qms .navbar-toggler {
+    border: none;
+}
