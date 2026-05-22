@@ -19,7 +19,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /domains/uat.nttiportal.com/
+          server-dir: /home/nttiportal/domains/uat.nttiportal.com/public_html/
           exclude: |
             **/.git*
             **/.git*/**
