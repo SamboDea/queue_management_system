@@ -24,7 +24,6 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
-            **/vendor/**
             **/.env
             **/storage/logs/**
             **/tests/**
