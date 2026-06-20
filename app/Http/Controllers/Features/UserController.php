@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Features;
 
 use App\Http\Controllers\Controller;
+use App\Models\Features\Counter;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -27,7 +28,7 @@ class UserController extends Controller
         try {
             $departments = Department::where('status', 'active')->get();
             $roles = Role::all();
-            return view('feature.users.create_user', compact('departments','roles'));
+            return view('feature.users.create_user', compact('departments', 'roles'));
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Failed to load page: ' . $e->getMessage());
         }
@@ -54,7 +55,7 @@ class UserController extends Controller
                 'password'        => Hash::make($request->password),
             ]);
 
-            $user->assignRole($request->role); 
+            $user->assignRole($request->role);
 
             return redirect()->route('users.index')->with('success', 'User created successfully.');
         } catch (Exception $e) {
@@ -67,8 +68,8 @@ class UserController extends Controller
         try {
             $departments = Department::where('status', 'active')->get();
             $roles = Role::all();
-            
-            return view('feature.users.show_user', compact('user','departments'));
+
+            return view('feature.users.show_user', compact('user', 'departments'));
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Failed to load user: ' . $e->getMessage());
         }
@@ -79,7 +80,8 @@ class UserController extends Controller
         try {
             $departments = Department::where('status', 'active')->get();
             $roles = Role::all();
-            return view('feature.users.edit_user', compact('user','departments','roles'));
+            $counters = Counter::all();
+            return view('feature.users.edit_user', compact('user', 'departments', 'roles', 'counters'));
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Failed to load user: ' . $e->getMessage());
         }
@@ -104,6 +106,7 @@ class UserController extends Controller
                 'phone'           => $request->phone,
                 'department_code' => $request->department_code,
                 'password'        => $request->password ? Hash::make($request->password) : $user->password,
+                'counter_code' => $request->counter,
             ]);
 
             $user->syncRoles($request->role);

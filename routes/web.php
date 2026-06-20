@@ -83,5 +83,10 @@ Route::middleware('auth')->group(function () {
         Route::patch('/{queue}/done',             [QueueController::class, 'done'])->middleware('can:queue.edit')->name('done');
         Route::patch('/counter/{counter}/toggle', [QueueController::class, 'toggleCounter'])->middleware('can:counter.edit')->name('counter.toggle');
     });
-
 });
+
+
+// ── Create the UI make the  ───────────────────────────────────────────────────────
+Route::get('/index-ticktick', [QueueController::class, 'IndexTicktick'])->name('IndexTicktick');
+Route::post('/take', [QueueController::class, 'take'])->name('take');
+Route::get('/queue/data', [QueueController::class, 'getQueueData']);
